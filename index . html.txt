@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovate Africa Tales</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light background */
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Hide all pages by default except the active one */
+        .page-content {
+            display: none;
+        }
+        .page-content.active {
+            display: block;
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom button styling */
+        .btn-primary {
+            @apply bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-sm hover:bg-gray-300 transition duration-300 ease-in-out;
+        }
+        /* Card styling */
+        .card {
+            @apply bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300;
+        }
+        .story-card {
+            @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300;
+        }
+        .story-card img {
+            @apply w-full h-48 object-cover;
+        }
+        .story-card-content {
+            @apply p-4;
+        }
+        .story-card-content h3 {
+            @apply text-xl font-semibold text-gray-900 mb-2;
+        }
+        .story-card-content p {
+            @apply text-gray-600 text-sm mb-3;
+        }
+        .tag {
+            @apply inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2;
+        }
+        .success-tag {
+            @apply bg-green-100 text-green-800;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#homepage" class="text-2xl font-bold text-gray-900 nav-link" data-page="homepage">Innovate Africa Tales</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#homepage" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="homepage">Home</a>
+                <a href="#tales-main" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="tales-main">Tales</a>
+                <a href="#opportunities-hub" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="opportunities-hub">Opportunities Hub</a>
+                <a href="#about-us" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="about-us">About Us</a>
+                <a href="#submit-tale" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="submit-tale">Submit Your Tale</a>
+                <a href="#contact-us" class="text-gray-700 hover:text-blue-600 transition-colors nav-link" data-page="contact-us">Contact</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-lg rounded-b-lg">
+            <a href="#homepage" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="homepage">Home</a>
+            <a href="#tales-main" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="tales-main">Tales</a>
+            <a href="#opportunities-hub" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="opportunities-hub">Opportunities Hub</a>
+            <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="about-us">About Us</a>
+            <a href="#submit-tale" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="submit-tale">Submit Your Tale</a>
+            <a href="#contact-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 nav-link" data-page="contact-us">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="pt-20">
+        <!-- Homepage Section -->
+        <section id="homepage" class="page-content active">
+            <div class="relative h-96 md:h-[500px] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('https://placehold.co/1920x500/007bff/ffffff?text=African+Innovation+Hero+Image');">
+                <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                <div class="z-10 text-center p-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Innovate Africa: Unearthing the Continent's Future-Makers.</h1>
+                    <p class="text-lg md:text-xl mb-8 drop-shadow-md">Dive into inspiring stories of ingenuity, resilience, and progress shaping Africa's tomorrow.</p>
+                    <button class="btn-primary nav-link" data-page="tales-main">Explore All Tales</button>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-12">
+                <!-- What We Do Section -->
+                <section class="mb-16 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What We Do</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Welcome to **Innovate Africa Tales**, your window into the incredible wave of innovation sweeping across the African continent. We're dedicated to spotlighting the groundbreaking ideas, remarkable journeys, and impactful solutions emerging from every corner of Africa. From tech breakthroughs to community-led initiatives, we share the narratives of visionaries who aren't just solving local challenges, but creating models for global change. Join us in celebrating the spirit of African innovation.
+                    </p>
+                </section>
+
+                <!-- Featured Tales Section -->
+                <section class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Featured Stories</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Featured Tale Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/808080/ffffff?text=Drone+Delivery" alt="Drone Delivery" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#HealthWellbeing</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Drones Delivering Life-Saving Medicine to Remote Villages</h3>
+                                <p class="text-gray-600 text-sm mb-3">Discover how this innovative logistics solution is transforming healthcare access in hard-to-reach communities.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Featured Tale Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/4CAF50/ffffff?text=Mobile+Wallets" alt="Mobile Wallets" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#DigitalInclusion</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">How Mobile Wallets are Unlocking Rural Economies</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn how a Kenyan startup is revolutionizing financial access for millions, empowering small businesses and families.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Featured Tale Card 3 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/FFC107/333333?text=Solar+Mini-Grid" alt="Solar Mini-Grid" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#SustainableDevelopment</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Lighting Up Communities with Off-Grid Solar Solutions</h3>
+                                <p class="text-gray-600 text-sm mb-3">Explore how local innovators are bringing clean, affordable energy to areas previously without electricity.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Explore Categories Section -->
+                <section class="mb-16 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Explore Our Innovation Categories</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <div class="card nav-link cursor-pointer" data-page="category-digital-inclusion">
+                            <div class="text-blue-600 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.592 1L21 12l-4.408 1.908A5.962 5.962 0 0112 18a6 6 0 01-6-6c0-3.314 2.686-6 6-6z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Digital & Financial Inclusion</h3>
+                            <p class="text-gray-600 text-sm">Expanding access to essential services and economic opportunities.</p>
+                        </div>
+                        <div class="card nav-link cursor-pointer" data-page="category-sustainable-development">
+                            <div class="text-green-600 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 12H8m4 0h2m4 0h2M12 2.252V12m0 10.748V12M12 12H2.252M12 12H21.748" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Sustainable Development & Green Tech</h3>
+                            <p class="text-gray-600 text-sm">Building a greener, more resilient future for Africa.</p>
+                        </div>
+                        <div class="card nav-link cursor-pointer" data-page="category-health-wellbeing">
+                            <div class="text-red-600 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Health & Human Well-being</h3>
+                            <p class="text-gray-600 text-sm">Pioneering wellness and improving access to care across the continent.</p>
+                        </div>
+                        <div class="card nav-link cursor-pointer" data-page="category-smart-systems">
+                            <div class="text-purple-600 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Smart Systems & Infrastructure</h3>
+                            <p class="text-gray-600 text-sm">Connecting and optimizing Africa's physical and digital infrastructure.</p>
+                        </div>
+                        <div class="card nav-link cursor-pointer" data-page="category-creative-knowledge">
+                            <div class="text-yellow-600 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.05 16H15a2 2 0 002-2V7m-2 7l-3 3m0 0l-3-3m3 3V4m-9 13h4m-4 0a2 2 0 01-2-2V7a2 2 0 00-2-2h-4a2 2 0 00-2 2v10a2 2 0 002 2h4m-4 0h6m-3 0v-2m6 2v-2m-3 2H3" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Creative & Knowledge Economy</h3>
+                            <p class="text-gray-600 text-sm">Africa's vibrant new frontiers in arts, culture, and digital skills.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Discover Opportunities Section -->
+                <section class="mb-16 text-center bg-blue-50 rounded-lg p-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Discover Opportunities</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                        Ready to be part of the innovation wave? Explore our curated list of hackathons, exhibitions, funding calls, and mentorship programs that can ignite your journey.
+                    </p>
+                    <button class="btn-primary nav-link" data-page="opportunities-hub">Explore Opportunities</button>
+                </section>
+
+                <!-- Newsletter Signup Section -->
+                <section class="mb-16 text-center bg-gray-100 rounded-lg p-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Stay Inspired. Get the Latest Tales in Your Inbox.</h2>
+                    <p class="text-lg text-gray-700 max-w-xl mx-auto mb-8">
+                        Subscribe to our newsletter for exclusive stories and updates on African innovation.
+                    </p>
+                    <form class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                        <input type="email" placeholder="Your email address" class="p-3 rounded-lg border border-gray-300 w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <!-- Tales Main Page Section -->
+        <section id="tales-main" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Our Tales of Innovation in Africa</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    Welcome to the heart of **Innovate Africa Tales**, where we bring to life the groundbreaking ideas, remarkable journeys, and impactful solutions emerging from across the continent. Dive into stories that showcase Africa's ingenuity and its role in shaping a brighter global future. From inspiring **startup success stories** to groundbreaking technological advancements, explore all our narratives below.
+                </p>
+
+                <!-- Filter & Search Bar -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-8 space-y-4 md:space-y-0 md:space-x-4">
+                    <input type="text" id="tales-search" placeholder="Search stories..." class="p-3 rounded-lg border border-gray-300 w-full md:flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select id="tales-category-filter" class="p-3 rounded-lg border border-gray-300 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="all">All Categories</option>
+                        <option value="digital-inclusion">Digital & Financial Inclusion</option>
+                        <option value="sustainable-development">Sustainable Development & Green Tech</option>
+                        <option value="health-wellbeing">Health & Human Well-being</option>
+                        <option value="smart-systems">Smart Systems & Infrastructure</option>
+                        <option value="creative-knowledge">Creative & Knowledge Economy</option>
+                    </select>
+                    <select id="tales-sort-by" class="p-3 rounded-lg border border-gray-300 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="newest">Newest</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="featured">Featured</option>
+                    </select>
+                    <select id="tales-type-filter" class="p-3 rounded-lg border border-gray-300 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="all">All Stories</option>
+                        <option value="startup-success">Startup Success Stories</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Grid of All Tales (Example Static Content) -->
+                <div id="tales-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Story Card 1 -->
+                    <div class="story-card" data-category="health-wellbeing" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/808080/ffffff?text=Telemedicine+App" alt="Telemedicine App" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#HealthWellbeing</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Telemedicine Bridging Doctor-Patient Gaps in Rural Areas</h3>
+                            <p class="text-gray-600 text-sm mb-3">A groundbreaking app connects remote patients with urban doctors, revolutionizing access to healthcare.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Example Story Card 2 -->
+                    <div class="story-card" data-category="digital-inclusion">
+                        <img src="https://placehold.co/600x400/4CAF50/ffffff?text=E-learning+Platform" alt="E-learning Platform" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#DigitalInclusion</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Empowering Students with Accessible E-learning Platforms</h3>
+                            <p class="text-gray-600 text-sm mb-3">How digital education is reaching underserved communities and transforming learning outcomes.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Example Story Card 3 -->
+                    <div class="story-card" data-category="sustainable-development" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/FFC107/333333?text=Waste+Recycling" alt="Waste Recycling" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SustainableDevelopment</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Turning Food Waste into Fertiliser: A Circular Economy Success</h3>
+                            <p class="text-gray-600 text-sm mb-3">A startup's innovative approach to converting organic waste into valuable agricultural input.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Example Story Card 4 -->
+                    <div class="story-card" data-category="smart-systems">
+                        <img src="https://placehold.co/600x400/9C27B0/ffffff?text=Smart+Logistics" alt="Smart Logistics" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SmartSystems</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Revolutionizing Supply Chains with AI-Powered Logistics</h3>
+                            <p class="text-gray-600 text-sm mb-3">How AI is optimizing delivery routes and reducing costs for businesses across Africa.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-smart-systems">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Example Story Card 5 -->
+                    <div class="story-card" data-category="creative-knowledge" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/FFEB3B/333333?text=Animation+Studio" alt="Animation Studio" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#CreativeKnowledge</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">African Animation Studios Captivating Global Audiences</h3>
+                            <p class="text-gray-600 text-sm mb-3">A look into the vibrant animation scene producing world-class content and creating jobs.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-creative">Read More</button>
+                        </div>
+                    </div>
+                    <!-- More story cards would be dynamically loaded here in a real application -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Individual Category Pages (Example: Digital & Financial Inclusion) -->
+        <section id="category-digital-inclusion" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Digital & Financial Inclusion: Empowering Africa's Future.</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    This section highlights the innovators who are leveraging digital technologies to expand access to essential services and economic opportunities. Explore how mobile platforms, digital payments, e-learning solutions, and connected communities are bridging gaps and empowering millions across Africa. From the bustling markets of Nairobi to remote villages, these tales reveal how digital innovation is fostering unprecedented inclusion, featuring **inspiring startup success stories** and groundbreaking initiatives.
+                </p>
+
+                <!-- Stories specific to Digital & Financial Inclusion -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Digital Inclusion Story Card 1 (Example from main tales) -->
+                    <div class="story-card" data-category="digital-inclusion">
+                        <img src="https://placehold.co/600x400/4CAF50/ffffff?text=E-learning+Platform" alt="E-learning Platform" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#DigitalInclusion</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Empowering Students with Accessible E-learning Platforms</h3>
+                            <p class="text-gray-600 text-sm mb-3">How digital education is reaching underserved communities and transforming learning outcomes.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Digital Inclusion Story Card 2 -->
+                    <div class="story-card" data-category="digital-inclusion" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/2196F3/ffffff?text=Mobile+Banking+App" alt="Mobile Banking App" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#DigitalInclusion</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Revolutionizing Micro-Lending with AI-Powered Platforms</h3>
+                            <p class="text-gray-600 text-sm mb-3">A FinTech startup is using AI to provide quick, affordable micro-loans to small businesses.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Digital Inclusion Story Card 3 -->
+                    <div class="story-card" data-category="digital-inclusion">
+                        <img src="https://placehold.co/600x400/FF9800/333333?text=Digital+Literacy" alt="Digital Literacy Program" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#DigitalInclusion</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Bridging the Digital Divide: Community-Led Literacy Programs</h3>
+                            <p class="text-gray-600 text-sm mb-3">Grassroots initiatives are equipping rural populations with essential digital skills.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="btn-secondary nav-link" data-page="submit-tale">Submit Your Digital & Financial Inclusion Story</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Category Pages (Similar structure to Digital & Financial Inclusion) -->
+        <section id="category-sustainable-development" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Sustainable Development & Green Tech: Building a Resilient Africa.</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    Discover the innovators championing environmental sustainability, resource management, and a greener future for Africa. This section features solutions that harness renewable energy, promote circular economies, and foster sustainable agricultural practices, demonstrating how economic growth can go hand-in-hand with ecological responsibility and resilience in the face of climate change. Here, you'll find both groundbreaking projects and **startup success stories** that are driving this vital transition.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Stories for Sustainable Development -->
+                    <div class="story-card" data-category="sustainable-development" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/FFC107/333333?text=Waste+Recycling" alt="Waste Recycling" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SustainableDevelopment</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Turning Food Waste into Fertiliser: A Circular Economy Success</h3>
+                            <p class="text-gray-600 text-sm mb-3">A startup's innovative approach to converting organic waste into valuable agricultural input.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                        </div>
+                    </div>
+                    <div class="story-card" data-category="sustainable-development">
+                        <img src="https://placehold.co/600x400/795548/ffffff?text=Eco-friendly+Building" alt="Eco-friendly Building" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SustainableDevelopment</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Building Greener Cities with Sustainable Construction Materials</h3>
+                            <p class="text-gray-600 text-sm mb-3">Innovators are developing eco-friendly building materials from local resources.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="btn-secondary nav-link" data-page="submit-tale">Submit Your Sustainable Development Story</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-health-wellbeing" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Health & Human Well-being: Pioneering Wellness Across the Continent.</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    Step into a world where innovation is directly impacting public health, medical care access, and the overall well-being of African communities. These tales showcase the visionary individuals and organizations developing groundbreaking diagnostic tools, expanding telemedicine, and creating accessible health solutions that are transforming lives and building more robust healthcare systems across the continent. Learn from their journeys and **startup success stories**.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Stories for Health & Human Well-being -->
+                    <div class="story-card" data-category="health-wellbeing" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/808080/ffffff?text=Telemedicine+App" alt="Telemedicine App" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#HealthWellbeing</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Telemedicine Bridging Doctor-Patient Gaps in Rural Areas</h3>
+                            <p class="text-gray-600 text-sm mb-3">A groundbreaking app connects remote patients with urban doctors, revolutionizing access to healthcare.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                        </div>
+                    </div>
+                    <div class="story-card" data-category="health-wellbeing">
+                        <img src="https://placehold.co/600x400/F44336/ffffff?text=Portable+Diagnostic" alt="Portable Diagnostic Device" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#HealthWellbeing</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Affordable Diagnostics: A Game Changer for African Healthcare</h3>
+                            <p class="text-gray-600 text-sm mb-3">Portable, low-cost diagnostic devices are enabling early detection of diseases in underserved areas.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="btn-secondary nav-link" data-page="submit-tale">Submit Your Health & Human Well-being Story</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-smart-systems" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Smart Systems & Infrastructure: Connecting & Optimizing Africa.</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    Explore the innovations that are building, connecting, and optimizing the physical and digital infrastructure of Africa. This section highlights advancements in robotics, AI, logistics, and urban planning that are improving efficiency, enhancing connectivity, and creating smarter, more resilient cities and economies, laying the groundwork for future growth and development. Discover the **startup success stories** behind these transformative systems.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Stories for Smart Systems & Infrastructure -->
+                    <div class="story-card" data-category="smart-systems">
+                        <img src="https://placehold.co/600x400/9C27B0/ffffff?text=Smart+Logistics" alt="Smart Logistics" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SmartSystems</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Revolutionizing Supply Chains with AI-Powered Logistics</h3>
+                            <p class="text-gray-600 text-sm mb-3">How AI is optimizing delivery routes and reducing costs for businesses across Africa.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-smart-systems">Read More</button>
+                        </div>
+                    </div>
+                    <div class="story-card" data-category="smart-systems" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/673AB7/ffffff?text=Smart+City" alt="Smart City" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#SmartSystems</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Building Smarter Cities: Data-Driven Urban Planning in Kigali</h3>
+                            <p class="text-gray-600 text-sm mb-3">A look into how data analytics is shaping more efficient and sustainable urban environments.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-smart-systems">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="btn-secondary nav-link" data-page="submit-tale">Submit Your Smart Systems & Infrastructure Story</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-creative-knowledge" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Creative & Knowledge Economy: Africa's Vibrant New Frontiers.</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    Celebrate the vibrant innovations emerging from Africa's creative industries and the broader knowledge economy. This section dives into how technology is empowering new forms of artistic expression, fostering unique cultural entrepreneurship, and driving skill development for the next generation of African talent, showcasing the continent's rich cultural heritage alongside its technological prowess. Get inspired by **startup success stories** and groundbreaking projects.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example Stories for Creative & Knowledge Economy -->
+                    <div class="story-card" data-category="creative-knowledge" data-type="startup-success">
+                        <img src="https://placehold.co/600x400/FFEB3B/333333?text=Animation+Studio" alt="Animation Studio" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#CreativeKnowledge</span> <span class="tag success-tag">#StartupSuccess</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">African Animation Studios Captivating Global Audiences</h3>
+                            <p class="text-gray-600 text-sm mb-3">A look into the vibrant animation scene producing world-class content and creating jobs.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-creative">Read More</button>
+                        </div>
+                    </div>
+                    <div class="story-card" data-category="creative-knowledge">
+                        <img src="https://placehold.co/600x400/FFC107/333333?text=VR+Art" alt="VR Art Experience" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="story-card-content">
+                            <span class="tag">#CreativeKnowledge</span>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Reimagining Traditional Art with VR Experiences</h3>
+                            <p class="text-gray-600 text-sm mb-3">Artists are using virtual reality to bring African heritage to life in immersive new ways.</p>
+                            <button class="btn-secondary text-sm nav-link" data-page="example-story-creative">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="btn-secondary nav-link" data-page="submit-tale">Submit Your Creative & Knowledge Economy Story</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Single Story Page (Dynamic in a real app) -->
+        <section id="example-story-health" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <button class="btn-secondary mb-6 nav-link" data-page="tales-main">&larr; Back to All Tales</button>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Drones Delivering Life-Saving Medicine to Remote Villages</h1>
+                <p class="text-gray-600 text-sm mb-4">By Innovate Africa Tales Team | July 16, 2025</p>
+                <span class="tag">#HealthWellbeing</span> <span class="tag success-tag">#StartupSuccess</span>
+
+                <img src="https://placehold.co/800x500/808080/ffffff?text=Drone+Delivery+Story+Image" alt="Drone delivering medicine" class="w-full h-auto rounded-lg my-6 shadow-md">
+
+                <p class="text-lg text-gray-700 mb-6">
+                    In many parts of rural Africa, access to essential medical supplies is a critical challenge. Rough terrain, poor roads, and long distances often mean that life-saving medications, vaccines, and blood samples cannot reach those who need them most in a timely manner. This challenge has historically contributed to preventable deaths and exacerbated health crises.
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Innovative Solution: SkyMed Drones</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Enter SkyMed Drones, a groundbreaking startup based in Rwanda that is revolutionizing medical logistics. Founded by Dr. Aisha Hassan, a former public health official, SkyMed utilizes a fleet of autonomous drones to deliver medical supplies directly to remote clinics and hospitals. Their custom-built drones can navigate challenging landscapes, operate in adverse weather conditions, and significantly reduce delivery times from hours or days to mere minutes.
+                </p>
+                <img src="https://placehold.co/600x400/A0A0A0/ffffff?text=Drone+Loading+Supplies" alt="Drone being loaded with medical supplies" class="w-full h-auto rounded-lg my-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Journey and Impact</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Dr. Hassan's journey began with a pilot project in three remote districts, facing initial skepticism and logistical hurdles. However, the undeniable impact quickly spoke for itself. In its first year, SkyMed Drones facilitated the delivery of over 5,000 units of blood, 10,000 doses of vaccines, and countless emergency medications. This led to a 30% reduction in maternal mortality rates in pilot areas due to timely access to blood transfusions and a significant decrease in vaccine-preventable diseases.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    "Our goal was simple: ensure that geography never dictates access to healthcare," says Dr. Hassan. "We've proven that with the right technology and a deep understanding of local needs, we can overcome seemingly insurmountable barriers."
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Future Vision</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    SkyMed Drones plans to expand its operations across East Africa within the next five years, partnering with governments and NGOs to build a continent-wide network of drone delivery hubs. They are also exploring the use of drones for rapid diagnostic sample collection and even delivering essential educational materials. Their success story is a powerful testament to how African innovation is directly improving human well-being.
+                </p>
+
+                <div class="bg-blue-50 p-6 rounded-lg mt-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">About SkyMed Drones</h3>
+                    <p class="text-gray-700 mb-2">SkyMed Drones is a Rwandan-based startup pioneering autonomous drone delivery for medical supplies in hard-to-reach areas across Africa.</p>
+                    <p class="text-gray-700">Learn more: <a href="#" class="text-blue-600 hover:underline">www.skymeddrones.com (Placeholder)</a></p>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">More Tales You Might Like</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Related Story Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/F44336/ffffff?text=Portable+Diagnostic" alt="Portable Diagnostic Device" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#HealthWellbeing</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Affordable Diagnostics: A Game Changer for African Healthcare</h3>
+                                <p class="text-gray-600 text-sm mb-3">Portable, low-cost diagnostic devices are enabling early detection of diseases in underserved areas.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Related Story Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/4CAF50/ffffff?text=Mobile+Wallets" alt="Mobile Wallets" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#DigitalInclusion</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">How Mobile Wallets are Unlocking Rural Economies</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn how a Kenyan startup is revolutionizing financial access for millions, empowering small businesses and families.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Single Story Page (FinTech) -->
+        <section id="example-story-fintech" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <button class="btn-secondary mb-6 nav-link" data-page="tales-main">&larr; Back to All Tales</button>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">How Mobile Wallets are Unlocking Rural Economies</h1>
+                <p class="text-gray-600 text-sm mb-4">By Innovate Africa Tales Team | July 16, 2025</p>
+                <span class="tag">#DigitalInclusion</span> <span class="tag success-tag">#StartupSuccess</span>
+
+                <img src="https://placehold.co/800x500/4CAF50/ffffff?text=Mobile+Money+Story+Image" alt="Mobile money transaction in rural area" class="w-full h-auto rounded-lg my-6 shadow-md">
+
+                <p class="text-lg text-gray-700 mb-6">
+                    In many rural areas of Africa, traditional banking infrastructure is scarce, leaving millions unbanked or underbanked. This lack of access to financial services hinders economic growth, makes remittances difficult, and limits opportunities for small businesses and individuals.
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Innovative Solution: EcoPay</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    EcoPay, a FinTech startup originating from Kenya, is transforming this landscape with its innovative mobile wallet solution. EcoPay allows users to send and receive money, pay for goods and services, and even access micro-loans directly from their basic mobile phones, without needing a bank account. Their extensive agent network in remote areas ensures cash-in and cash-out points are always accessible.
+                </p>
+                <img src="https://placehold.co/600x400/66BB6A/ffffff?text=EcoPay+Agent" alt="EcoPay agent assisting a customer" class="w-full h-auto rounded-lg my-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Journey and Impact</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    EcoPay started as a small pilot in a few villages and quickly gained traction due to its simplicity and reliability. In just three years, EcoPay has onboarded over 5 million users across Kenya and Tanzania, processing over $100 million in transactions monthly. This has led to a significant increase in financial inclusion, enabling farmers to receive payments directly, families to send remittances instantly, and small businesses to manage their finances more efficiently.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    "We saw a huge need for accessible financial tools that truly fit the lives of everyday Africans," says Sarah Mweu, EcoPay's co-founder. "Our platform isn't just about transactions; it's about empowering communities and fostering economic resilience."
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Future Vision</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    EcoPay plans to expand into three more African countries next year, introducing new features like agricultural insurance and digital savings accounts tailored for rural populations. Their vision is to build a truly inclusive digital economy where every African has the tools to thrive.
+                </p>
+
+                <div class="bg-blue-50 p-6 rounded-lg mt-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">About EcoPay</h3>
+                    <p class="text-gray-700 mb-2">EcoPay is a leading African FinTech startup providing accessible mobile money and financial services to underserved populations.</p>
+                    <p class="text-gray-700">Learn more: <a href="#" class="text-blue-600 hover:underline">www.ecopay.com (Placeholder)</a></p>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">More Tales You Might Like</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Related Story Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/808080/ffffff?text=Telemedicine+App" alt="Telemedicine App" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#HealthWellbeing</span> <span class="tag success-tag">#StartupSuccess</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Telemedicine Bridging Doctor-Patient Gaps in Rural Areas</h3>
+                                <p class="text-gray-600 text-sm mb-3">A groundbreaking app connects remote patients with urban doctors, revolutionizing access to healthcare.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Related Story Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/FFC107/333333?text=Solar+Mini-Grid" alt="Solar Mini-Grid" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#SustainableDevelopment</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Lighting Up Communities with Off-Grid Solar Solutions</h3>
+                                <p class="text-gray-600 text-sm mb-3">Explore how local innovators are bringing clean, affordable energy to areas previously without electricity.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Single Story Page (Energy) -->
+        <section id="example-story-energy" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <button class="btn-secondary mb-6 nav-link" data-page="tales-main">&larr; Back to All Tales</button>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Lighting Up Communities with Off-Grid Solar Solutions</h1>
+                <p class="text-gray-600 text-sm mb-4">By Innovate Africa Tales Team | July 16, 2025</p>
+                <span class="tag">#SustainableDevelopment</span>
+
+                <img src="https://placehold.co/800x500/FFC107/333333?text=Solar+Community+Project" alt="Solar community project" class="w-full h-auto rounded-lg my-6 shadow-md">
+
+                <p class="text-lg text-gray-700 mb-6">
+                    Access to reliable electricity remains a significant challenge for millions in rural Africa, limiting economic activity, educational opportunities, and overall quality of life. Traditional grid expansion is often slow and costly, leaving many communities in the dark.
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Innovative Solution: BrightSpark Solar</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    BrightSpark Solar, a social enterprise operating out of Nigeria, is pioneering affordable and scalable off-grid solar solutions. They design, install, and maintain solar mini-grids that provide clean, reliable electricity to entire villages. Their innovative "pay-as-you-go" model makes electricity accessible and affordable for low-income households and small businesses.
+                </p>
+                <img src="https://placehold.co/600x400/FFD54F/333333?text=Solar+Panel+Installation" alt="Solar panel installation" class="w-full h-auto rounded-lg my-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Journey and Impact</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Starting with a single village pilot, BrightSpark Solar faced challenges in community engagement and financing. However, by demonstrating immediate benefits like extended market hours, improved study time for children, and safer homes, they quickly gained trust and momentum. To date, BrightSpark has electrified over 150 villages, impacting more than 500,000 lives. They've seen a 40% increase in local business activity and a significant reduction in kerosene lamp usage, leading to improved respiratory health.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    "We're not just selling electricity; we're selling opportunity," says Chika Okoro, CEO of BrightSpark Solar. "Empowering communities with clean energy unlocks their full potential, driving local economies and improving well-being."
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Future Vision</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    BrightSpark Solar aims to expand its reach across West Africa, developing larger mini-grids and integrating smart metering technologies to optimize energy distribution. They are also exploring partnerships to provide solar-powered irrigation solutions for farmers, further enhancing sustainable development.
+                </p>
+
+                <div class="bg-blue-50 p-6 rounded-lg mt-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">About BrightSpark Solar</h3>
+                    <p class="text-gray-700 mb-2">BrightSpark Solar is a Nigerian social enterprise providing affordable, off-grid solar energy solutions to rural communities across Africa.</p>
+                    <p class="text-gray-700">Learn more: <a href="#" class="text-blue-600 hover:underline">www.brightsparks.com (Placeholder)</a></p>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">More Tales You Might Like</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Related Story Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/4CAF50/ffffff?text=Mobile+Wallets" alt="Mobile Wallets" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#DigitalInclusion</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">How Mobile Wallets are Unlocking Rural Economies</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn how a Kenyan startup is revolutionizing financial access for millions, empowering small businesses and families.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Related Story Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/808080/ffffff?text=Telemedicine+App" alt="Telemedicine App" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#HealthWellbeing</span> <span class="tag success-tag">#StartupSuccess</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Telemedicine Bridging Doctor-Patient Gaps in Rural Areas</h3>
+                                <p class="text-gray-600 text-sm mb-3">A groundbreaking app connects remote patients with urban doctors, revolutionizing access to healthcare.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-health">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Single Story Page (Smart Systems) -->
+        <section id="example-story-smart-systems" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <button class="btn-secondary mb-6 nav-link" data-page="tales-main">&larr; Back to All Tales</button>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Revolutionizing Supply Chains with AI-Powered Logistics</h1>
+                <p class="text-gray-600 text-sm mb-4">By Innovate Africa Tales Team | July 16, 2025</p>
+                <span class="tag">#SmartSystems</span> <span class="tag success-tag">#StartupSuccess</span>
+
+                <img src="https://placehold.co/800x500/9C27B0/ffffff?text=AI+Logistics+Map" alt="AI powered logistics map" class="w-full h-auto rounded-lg my-6 shadow-md">
+
+                <p class="text-lg text-gray-700 mb-6">
+                    Inefficient logistics and fragmented supply chains are significant hurdles for businesses across Africa, leading to high operational costs, delayed deliveries, and limited market access, particularly for small and medium-sized enterprises (SMEs).
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Innovative Solution: RouteOptima AI</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    RouteOptima AI, a Nigerian-based startup, is transforming the logistics sector with its advanced AI-powered platform. Their solution uses machine learning algorithms to optimize delivery routes, predict traffic patterns, manage fleet maintenance, and provide real-time tracking for goods. This leads to significant reductions in fuel consumption, delivery times, and overall operational expenses.
+                </p>
+                <img src="https://placehold.co/600x400/AB47BC/ffffff?text=Truck+Tracking+Interface" alt="Truck tracking interface" class="w-full h-auto rounded-lg my-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Journey and Impact</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    RouteOptima AI began by targeting local e-commerce businesses struggling with last-mile delivery. Their success quickly attracted larger logistics companies. In two years, they've helped over 200 businesses reduce their logistics costs by an average of 25% and improve delivery efficiency by 30%. This has enabled these businesses to expand their reach, serve more customers, and become more competitive.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    "We're bringing a new level of intelligence to African logistics," says Emeka Nnamdi, CEO of RouteOptima AI. "Our platform empowers businesses to move goods smarter, faster, and more affordably, unlocking immense economic potential."
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Future Vision</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    RouteOptima AI plans to integrate drone delivery capabilities for urgent packages and expand its services to include cold chain logistics for perishable goods. They aim to become the leading AI-driven logistics platform across West and Central Africa, fostering seamless trade and supply chains.
+                </p>
+
+                <div class="bg-blue-50 p-6 rounded-lg mt-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">About RouteOptima AI</h3>
+                    <p class="text-gray-700 mb-2">RouteOptima AI is a Nigerian startup providing AI-powered logistics and supply chain optimization solutions for businesses in Africa.</p>
+                    <p class="text-gray-700">Learn more: <a href="#" class="text-blue-600 hover:underline">www.routeoptima.ai (Placeholder)</a></p>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">More Tales You Might Like</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Related Story Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/FFC107/333333?text=Solar+Mini-Grid" alt="Solar Mini-Grid" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#SustainableDevelopment</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Lighting Up Communities with Off-Grid Solar Solutions</h3>
+                                <p class="text-gray-600 text-sm mb-3">Explore how local innovators are bringing clean, affordable energy to areas previously without electricity.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Related Story Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/4CAF50/ffffff?text=Mobile+Wallets" alt="Mobile Wallets" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#DigitalInclusion</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">How Mobile Wallets are Unlocking Rural Economies</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn how a Kenyan startup is revolutionizing financial access for millions, empowering small businesses and families.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Single Story Page (Creative) -->
+        <section id="example-story-creative" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <button class="btn-secondary mb-6 nav-link" data-page="tales-main">&larr; Back to All Tales</button>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">African Animation Studios Captivating Global Audiences</h1>
+                <p class="text-gray-600 text-sm mb-4">By Innovate Africa Tales Team | July 16, 2025</p>
+                <span class="tag">#CreativeKnowledge</span> <span class="tag success-tag">#StartupSuccess</span>
+
+                <img src="https://placehold.co/800x500/FFEB3B/333333?text=African+Animation+Studio" alt="African animation studio" class="w-full h-auto rounded-lg my-6 shadow-md">
+
+                <p class="text-lg text-gray-700 mb-6">
+                    For decades, global animation has largely overlooked the rich storytelling traditions and diverse cultures of Africa. This presented a significant gap in representation and an untapped market for unique narratives.
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Innovative Solution: Kanga Studios</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Kanga Studios, a vibrant animation startup based in South Africa, is changing this narrative. They combine traditional African folklore and contemporary stories with cutting-edge digital animation techniques to produce captivating content for global audiences. Their focus is on authentic storytelling, diverse characters, and high-quality production that competes on the international stage.
+                </p>
+                <img src="https://placehold.co/600x400/FFD700/333333?text=Kanga+Studio+Characters" alt="Kanga Studio characters" class="w-full h-auto rounded-lg my-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">The Journey and Impact</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Kanga Studios started with a small team and a big dream, facing challenges in securing initial funding and attracting top talent. However, their unique vision and compelling pilot projects quickly gained attention. Their first animated series, "The Baobab Guardians," was picked up by a major streaming platform, reaching millions of viewers worldwide. This success has not only generated revenue but also created numerous jobs for animators, writers, and voice actors across the continent, fostering a burgeoning creative economy.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    "We're showing the world the magic of African stories," says Nomusa Dlamini, Creative Director at Kanga Studios. "Our aim is to build a global animation powerhouse that truly reflects the richness and diversity of our continent."
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Future Vision</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Kanga Studios plans to expand its content library to include interactive experiences and educational animations. They are also establishing an academy to train the next generation of African animators, ensuring a sustainable pipeline of talent for the continent's growing creative industry.
+                </p>
+
+                <div class="bg-blue-50 p-6 rounded-lg mt-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">About Kanga Studios</h3>
+                    <p class="text-gray-700 mb-2">Kanga Studios is a South African animation startup creating world-class content inspired by African stories and cultures.</p>
+                    <p class="text-gray-700">Learn more: <a href="#" class="text-blue-600 hover:underline">www.kangastudios.com (Placeholder)</a></p>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">More Tales You Might Like</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Related Story Card 1 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/FFC107/333333?text=Solar+Mini-Grid" alt="Solar Mini-Grid" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#SustainableDevelopment</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Lighting Up Communities with Off-Grid Solar Solutions</h3>
+                                <p class="text-gray-600 text-sm mb-3">Explore how local innovators are bringing clean, affordable energy to areas previously without electricity.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-energy">Read More</button>
+                            </div>
+                        </div>
+                        <!-- Related Story Card 2 -->
+                        <div class="story-card">
+                            <img src="https://placehold.co/600x400/4CAF50/ffffff?text=Mobile+Wallets" alt="Mobile Wallets" class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="story-card-content">
+                                <span class="tag">#DigitalInclusion</span>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">How Mobile Wallets are Unlocking Rural Economies</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn how a Kenyan startup is revolutionizing financial access for millions, empowering small businesses and families.</p>
+                                <button class="btn-secondary text-sm nav-link" data-page="example-story-fintech">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Opportunities Hub Section -->
+        <section id="opportunities-hub" class="page-content py-12">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Opportunities Hub: Ignite Your Innovation Journey</h1>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10 text-center">
+                    The African innovation landscape is vibrant and ever-evolving, brimming with chances for connection, collaboration, and growth. At Innovate Africa Tales, we're not just sharing stories; we're also committed to empowering the next generation of innovators and connecting existing ones with vital resources. Our **Opportunities Hub** is your gateway to the latest events, funding, challenges, and partnerships shaping the continent's future.
+                    <br><br>
+                    Whether you're an aspiring entrepreneur, a seasoned developer, a creative mind, or an investor, this is where you'll find the resources to fuel your journey.
+                </p>
+
+                <!-- Hackathons & Competitions -->
+                <section class="mb-12 bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">1. Hackathons & Competitions</h2>
+                    <div class="space-y-6">
+                        <!-- Opportunity 1 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">AgriTech Innovation Challenge 2025</h3>
+                            <p class="text-gray-700 mb-1">**Description:** A virtual hackathon inviting teams to develop digital solutions for smallholder farmers in East Africa, focusing on climate resilience and market access.</p>
+                            <p class="text-gray-700 mb-1">**Dates & Location:** October 10-12, 2025 (Virtual)</p>
+                            <p class="text-gray-700 mb-1">**Eligibility:** Teams of 3-5 innovators, open to all African countries.</p>
+                            <p class="text-gray-700 mb-1">**Prizes/Benefits:** KES 500,000 seed funding, 3-month incubation program, mentorship.</p>
+                            <p class="text-gray-700 mb-1">**Application Deadline:** September 20, 2025</p>
+                            <a href="#" class="text-blue-600 hover:underline">Learn More & Apply (Placeholder)</a>
+                        </div>
+                        <!-- Opportunity 2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">HealthTech Africa Hackathon</h3>
+                            <p class="text-gray-700 mb-1">**Description:** Develop innovative tech solutions for healthcare delivery and access in West Africa.</p>
+                            <p class="text-gray-700 mb-1">**Dates & Location:** November 5-7, 2025 (Accra, Ghana)</p>
+                            <p class="text-gray-700 mb-1">**Eligibility:** Open to individuals and teams with a focus on health innovation.</p>
+                            <p class="text-gray-700 mb-1">**Prizes/Benefits:** $10,000 cash prize, fast-track to accelerator program.</p>
+                            <p class="text-gray-700 mb-1">**Application Deadline:** October 15, 2025</p>
+                            <a href="#" class="text-blue-600 hover:underline">Learn More & Apply (Placeholder)</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Exhibitions & Conferences -->
+                <section class="mb-12 bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">2. Exhibitions & Conferences</h2>
+                    <div class="space-y-6">
+                        <!-- Opportunity 1 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Africa Tech Summit Nairobi 2026</h3>
+                            <p class="text-gray-700 mb-1">**Focus:** Pan-African tech innovation, featuring FinTech, AgriTech, AI, and startup pitches.</p>
+                            <p class="text-gray-700 mb-1">**Dates & Location:** February 18-20, 2026 (KICC, Nairobi, Kenya)</p>
+                            <p class="text-gray-700 mb-1">**Why Attend:** Connect with investors, potential partners, and leading tech innovators; discover emerging trends; attend insightful keynotes.</p>
+                            <a href="#" class="text-blue-600 hover:underline">Register/Exhibit (Placeholder)</a>
+                        </div>
+                        <!-- Opportunity 2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Circular Economy Africa Expo</h3>
+                            <p class="text-gray-700 mb-1">**Focus:** Showcasing innovations in waste management, recycling, and sustainable consumption.</p>
+                            <p class="text-gray-700 mb-1">**Dates & Location:** March 10-12, 2026 (Cape Town, South Africa)</p>
+                            <p class="text-gray-700 mb-1">**Why Attend:** Network with sustainability leaders, explore green technologies, find investment opportunities.</p>
+                            <a href="#" class="text-blue-600 hover:underline">Register/Exhibit (Placeholder)</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Funding & Grant Opportunities -->
+                <section class="mb-12 bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">3. Funding & Grant Opportunities</h2>
+                    <div class="space-y-6">
+                        <!-- Opportunity 1 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Innovate Africa Seed Fund Call for Applications</h3>
+                            <p class="text-gray-700 mb-1">**Funder:** Africa Impact Ventures</p>
+                            <p class="text-gray-700 mb-1">**Focus:** Early-stage tech startups addressing SDG challenges in Health, Education, and Climate Tech.</p>
+                            <p class="text-gray-700 mb-1">**Funding:** Up to $100,000 in equity investment + 6-month accelerator program.</p>
+                            <p class="text-gray-700 mb-1">**Eligibility:** African-led startups with a demonstrable MVP and initial traction.</p>
+                            <p class="text-gray-700 mb-1">**Application Deadline:** Rolling applications until December 31, 2025</p>
+                            <a href="#" class="text-blue-600 hover:underline">Apply Here (Placeholder)</a>
+                        </div>
+                        <!-- Opportunity 2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">African Creative Industry Grant</h3>
+                            <p class="text-gray-700 mb-1">**Funder:** African Arts & Culture Foundation</p>
+                            <p class="text-gray-700 mb-1">**Focus:** Projects in digital animation, gaming, and immersive storytelling.</p>
+                            <p class="text-gray-700 mb-1">**Funding:** Grants of up to $25,000.</p>
+                            <p class="text-gray-700 mb-1">**Eligibility:** African artists, studios, and collectives.</p>
+                            <p class="text-gray-700 mb-1">**Application Deadline:** November 30, 2025</p>
+                            <a href="#" class="text-blue-600 hover:underline">Apply Here (Placeholder)</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mentorship & Incubation Programs -->
+                <section class="mb-12 bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">4. Mentorship & Incubation Programs</h2>
+                    <div class="space-y-6">
+                        <!-- Opportunity 1 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">The Foundry Tech Hub Accelerator Program</h3>
+                            <p class="text-gray-700 mb-1">**Provider:** The Foundry Tech Hub (Accra, Ghana)</p>
+                            <p class="text-gray-700 mb-1">**Program Focus:** Pre-seed and seed-stage tech startups in West Africa.</p>
+                            <p class="text-gray-700 mb-1">**Benefits:** Tailored mentorship, access to co-working space, legal and financial advisory, investor network access.</p>
+                            <p class="text-gray-700 mb-1">**Duration:** 4 months</p>
+                            <p class="text-gray-700 mb-1">**Application Period:** Opens Q1 2026</p>
+                            <a href="#" class="text-blue-600 hover:underline">Learn More (Placeholder)</a>
+                        </div>
+                        <!-- Opportunity 2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Pan-African Women in Tech Mentorship Network</h3>
+                            <p class="text-gray-700 mb-1">**Provider:** African Women in Tech Initiative</p>
+                            <p class="text-700 mb-1">**Program Focus:** Connecting aspiring and early-stage women tech entrepreneurs with experienced mentors.</p>
+                            <p class="text-gray-700 mb-1">**Benefits:** One-on-one mentorship, peer networking, skill-building workshops.</p>
+                            <p class="text-gray-700 mb-1">**Duration:** Ongoing</p>
+                            <p class="text-gray-700 mb-1">**Application Period:** Rolling applications</p>
+                            <a href="#" class="text-blue-600 hover:underline">Apply Here (Placeholder)</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="mb-12 text-center bg-blue-50 rounded-lg p-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Got an Opportunity to Share?</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                        Help us grow this hub! If you know of an exciting hackathon, exhibition, funding call, or program relevant to African innovation, please <button class="text-blue-600 hover:underline font-medium nav-link" data-page="submit-opportunity">Submit Your Opportunity Here</button>.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <!-- Submit Your Tale Section -->
+        <section id="submit-tale" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-2xl bg-white rounded-lg shadow-lg p-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Share Your Innovation Story with Africa and the World!</h1>
+                <p class="text-lg text-gray-700 mb-8 text-center">
+                    Do you have a groundbreaking innovation, an inspiring entrepreneurial journey, or a project making a real difference in Africa? We want to hear from you! Innovate Africa Tales is dedicated to amplifying the voices and visions of African innovators. Share your story with us, and let's inspire countless others.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What We're Looking For:</h2>
+                <p class="text-gray-700 mb-6">
+                    We are interested in innovations across our core categories: Digital & Financial Inclusion, Sustainable Development & Green Tech, Health & Human Well-being, Smart Systems & Infrastructure, and Creative & Knowledge Economy. We welcome:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                    <li>**Startup Success Stories:** Your entrepreneurial journey, challenges, growth, and impact.</li>
+                    <li>**Project Spotlights:** Innovative solutions solving real problems.</li>
+                    <li>**Research Breakthroughs:** Pioneering discoveries with practical applications.</li>
+                    <li>**Community Initiatives:** Grassroots innovation making a difference.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Submission Guidelines:</h2>
+                <ul class="list-disc list-inside text-gray-700 mb-8 space-y-2">
+                    <li>Please provide clear and concise information.</li>
+                    <li>Include high-quality images or video links if possible.</li>
+                    <li>Focus on the problem you're solving, your unique solution, and its impact.</li>
+                </ul>
+
+                <form id="submit-tale-form" class="space-y-6">
+                    <div>
+                        <label for="tale-name" class="block text-gray-800 text-lg font-medium mb-2">Your Name/Contact Person:</label>
+                        <input type="text" id="tale-name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="tale-email" class="block text-gray-800 text-lg font-medium mb-2">Your Email Address:</label>
+                        <input type="email" id="tale-email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="tale-org" class="block text-gray-800 text-lg font-medium mb-2">Organization/Company Name (if applicable):</label>
+                        <input type="text" id="tale-org" name="organization" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="tale-location" class="block text-gray-800 text-lg font-medium mb-2">Location (City, Country):</label>
+                        <input type="text" id="tale-location" name="location" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="tale-category" class="block text-gray-800 text-lg font-medium mb-2">Innovation Category:</label>
+                        <select id="tale-category" name="category" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select a Category</option>
+                            <option value="digital-inclusion">Digital & Financial Inclusion</option>
+                            <option value="sustainable-development">Sustainable Development & Green Tech</option>
+                            <option value="health-wellbeing">Health & Human Well-being</option>
+                            <option value="smart-systems">Smart Systems & Infrastructure</option>
+                            <option value="creative-knowledge">Creative & Knowledge Economy</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="tale-success-story" name="successStory" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                        <label for="tale-success-story" class="ml-2 text-gray-800 text-lg font-medium">Is this a Startup Success Story?</label>
+                    </div>
+                    <div>
+                        <label for="tale-title" class="block text-gray-800 text-lg font-medium mb-2">Story Title Suggestion:</label>
+                        <input type="text" id="tale-title" name="title" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="tale-problem" class="block text-gray-800 text-lg font-medium mb-2">Describe the Problem Your Innovation Solves (Max 200 words):</label>
+                        <textarea id="tale-problem" name="problem" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1200" required></textarea>
+                    </div>
+                    <div>
+                        <label for="tale-solution" class="block text-gray-800 text-lg font-medium mb-2">Explain Your Innovative Solution (Max 300 words):</label>
+                        <textarea id="tale-solution" name="solution" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1800" required></textarea>
+                    </div>
+                    <div>
+                        <label for="tale-impact" class="block text-gray-800 text-lg font-medium mb-2">What Impact Has Your Innovation Made? (Quantifiable data preferred, Max 250 words):</label>
+                        <textarea id="tale-impact" name="impact" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1500" required></textarea>
+                    </div>
+                    <div>
+                        <label for="tale-journey" class="block text-gray-800 text-lg font-medium mb-2">Your Journey/Key Challenges (Optional for Success Stories, Max 200 words):</label>
+                        <textarea id="tale-journey" name="journey" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1200"></textarea>
+                    </div>
+                    <div>
+                        <label for="tale-website" class="block text-gray-800 text-lg font-medium mb-2">Website Link (if applicable):</label>
+                        <input type="url" id="tale-website" name="website" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="tale-media" class="block text-gray-800 text-lg font-medium mb-2">Upload Supporting Media (Max 5 files, total 25MB - Placeholder for real upload):</label>
+                        <input type="file" id="tale-media" name="media" multiple accept="image/*,video/*" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-sm text-gray-500 mt-1">*(File upload functionality is illustrative; requires backend implementation)*</p>
+                    </div>
+                    <div>
+                        <label for="tale-comments" class="block text-gray-800 text-lg font-medium mb-2">Any Other Comments/Information:</label>
+                        <textarea id="tale-comments" name="comments" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="tale-terms" name="terms" class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500" required>
+                        <label for="tale-terms" class="ml-2 text-gray-800 text-lg font-medium">I agree to the terms and conditions (Placeholder for actual terms).</label>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Submit Story</button>
+                    <div id="tale-submission-message" class="mt-4 p-3 rounded-lg text-center hidden"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Submit Opportunity Section (Simple form, similar to Submit Tale) -->
+        <section id="submit-opportunity" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-2xl bg-white rounded-lg shadow-lg p-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Submit an Opportunity to Our Hub!</h1>
+                <p class="text-lg text-gray-700 mb-8 text-center">
+                    Help us grow our Opportunities Hub by sharing relevant events, funding calls, or programs for African innovators. Your contribution helps empower the ecosystem!
+                </p>
+
+                <form id="submit-opportunity-form" class="space-y-6">
+                    <div>
+                        <label for="opp-name" class="block text-gray-800 text-lg font-medium mb-2">Your Name:</label>
+                        <input type="text" id="opp-name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="opp-email" class="block text-gray-800 text-lg font-medium mb-2">Your Email Address:</label>
+                        <input type="email" id="opp-email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="opp-type" class="block text-gray-800 text-lg font-medium mb-2">Type of Opportunity:</label>
+                        <select id="opp-type" name="type" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select Type</option>
+                            <option value="hackathon">Hackathon/Competition</option>
+                            <option value="exhibition">Exhibition/Conference</option>
+                            <option value="funding">Funding/Grant</option>
+                            <option value="mentorship">Mentorship/Incubation Program</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="opp-title" class="block text-gray-800 text-lg font-medium mb-2">Opportunity Title:</label>
+                        <input type="text" id="opp-title" name="title" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="opp-description" class="block text-gray-800 text-lg font-medium mb-2">Brief Description:</label>
+                        <textarea id="opp-description" name="description" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <div>
+                        <label for="opp-link" class="block text-gray-800 text-lg font-medium mb-2">Official Link (Website/Application Page):</label>
+                        <input type="url" id="opp-link" name="link" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="opp-deadline" class="block text-gray-800 text-lg font-medium mb-2">Application/Event Deadline (if applicable):</label>
+                        <input type="date" id="opp-deadline" name="deadline" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Submit Opportunity</button>
+                    <div id="opp-submission-message" class="mt-4 p-3 rounded-lg text-center hidden"></div>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- About Us Section -->
+        <section id="about-us" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-4xl bg-white rounded-lg shadow-lg p-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Our Story: The Vision Behind Innovate Africa Tales</h1>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Mission:</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    At **Innovate Africa Tales**, we believe that Africa is a powerhouse of innovation, brimming with untold stories of ingenuity and resilience. Our mission is to be the premier platform for discovering, celebrating, and amplifying these narratives. We aim to inspire, inform, and connect, showcasing how African-led solutions are addressing critical challenges and contributing to global progress.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why We Do This:</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    The narrative of Africa is rapidly evolving, driven by a vibrant ecosystem of entrepreneurs, scientists, artists, and community leaders. We're passionate about shifting perceptions and highlighting the continent's immense potential. By sharing authentic, in-depth "tales," we want to:
+                </p>
+                <ul class="list-disc list-inside text-lg text-gray-700 mb-6 space-y-2">
+                    <li>**Inspire:** Encourage aspiring innovators and future leaders across Africa and beyond.</li>
+                    <li>**Inform:** Provide valuable insights into key trends, challenges, and opportunities in African innovation.</li>
+                    <li>**Connect:** Build a bridge between innovators, investors, policymakers, and the global community.</li>
+                    <li>**Celebrate:** Give deserved recognition to the pioneering spirit of African problem-solvers.</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Values:</h2>
+                <ul class="list-disc list-inside text-lg text-gray-700 mb-6 space-y-2">
+                    <li>**Authenticity:** We're committed to telling genuine, well-researched stories.</li>
+                    <li>**Impact:** We focus on innovations that create tangible, positive change.</li>
+                    <li>**Inspiration:** We aim to ignite passion and foster a sense of possibility.</li>
+                    <li>**Collaboration:** We believe in the power of shared knowledge and partnerships.</li>
+                    <li>**African-Led:** We prioritize solutions and voices from within the continent.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us" class="page-content py-12">
+            <div class="container mx-auto px-6 max-w-2xl bg-white rounded-lg shadow-lg p-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">Get in Touch with Innovate Africa Tales</h1>
+                <p class="text-lg text-gray-700 mb-8 text-center">
+                    We'd love to hear from you! Whether you have a question, a partnership inquiry, or just want to connect, feel free to reach out.
+                </p>
+
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="contact-name" class="block text-gray-800 text-lg font-medium mb-2">Your Name:</label>
+                        <input type="text" id="contact-name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="contact-email" class="block text-gray-800 text-lg font-medium mb-2">Your Email:</label>
+                        <input type="email" id="contact-email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="contact-subject" class="block text-gray-800 text-lg font-medium mb-2">Subject:</label>
+                        <select id="contact-subject" name="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select a Subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="media">Media Request</option>
+                            <option value="feedback">Website Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block text-gray-800 text-lg font-medium mb-2">Your Message:</label>
+                        <textarea id="contact-message" name="message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                    <div id="contact-submission-message" class="mt-4 p-3 rounded-lg text-center hidden"></div>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Other Ways to Connect:</h2>
+                    <p class="text-lg text-gray-700 mb-2">**Email:** <a href="mailto:stevenomondi2001@gmail.com" class="text-blue-600 hover:underline">stevenomondi2001@gmail.com</a></p>
+                    <p class="text-lg text-gray-700">**Phone (WhatsApp Available):** <a href="tel:+254745749012" class="text-blue-600 hover:underline">+254745749012</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 mt-12 rounded-t-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+            <p class="text-sm">&copy; 2025 Innovate Africa Tales. All rights reserved.</p>
+            <div class="flex space-x-6 text-sm">
+                <a href="#about-us" class="hover:text-blue-400 transition-colors nav-link" data-page="about-us">About Us</a>
+                <a href="#contact-us" class="hover:text-blue-400 transition-colors nav-link" data-page="contact-us">Contact</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy (Placeholder)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for single-page navigation and form handling
+
+        // Get all page content sections
+        const pages = document.querySelectorAll('.page-content');
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        // Get mobile menu elements
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Function to show a specific page and hide others
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+                // Scroll to top of the page content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            // Close mobile menu if open
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Add click event listeners to navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default anchor link behavior
+                const pageId = link.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // Toggle mobile menu visibility
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Form Submission Handlers (Illustrative - no backend) ---
+
+        // Handle Newsletter Subscription Form
+        const newsletterForm = document.querySelector('form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                const message = `Newsletter subscription for: ${emailInput.value} (This would be sent to a backend in a real app)`;
+                console.log(message);
+                alertUserMessage('newsletter-submission-message', 'Thank you for subscribing! We\'ll keep you updated.', 'success');
+                emailInput.value = ''; // Clear input
+            });
+        }
+
+        // Handle Submit Tale Form
+        const submitTaleForm = document.getElementById('submit-tale-form');
+        if (submitTaleForm) {
+            submitTaleForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(submitTaleForm);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                data['successStory'] = document.getElementById('tale-success-story').checked; // Handle checkbox
+                console.log('Tale Submission Data:', data);
+                alertUserMessage('tale-submission-message', 'Your story has been submitted! We will review it soon.', 'success');
+                submitTaleForm.reset(); // Clear form
+            });
+        }
+
+        // Handle Submit Opportunity Form
+        const submitOpportunityForm = document.getElementById('submit-opportunity-form');
+        if (submitOpportunityForm) {
+            submitOpportunityForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(submitOpportunityForm);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                console.log('Opportunity Submission Data:', data);
+                alertUserMessage('opp-submission-message', 'Your opportunity has been submitted! Thank you for contributing.', 'success');
+                submitOpportunityForm.reset(); // Clear form
+            });
+        }
+
+        // Handle Contact Form
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                console.log('Contact Form Data:', data);
+                alertUserMessage('contact-submission-message', 'Your message has been sent! We will get back to you soon.', 'success');
+                contactForm.reset(); // Clear form
+            });
+        }
+
+        // Function to display user messages (instead of alert())
+        function alertUserMessage(elementId, message, type) {
+            const messageElement = document.getElementById(elementId);
+            if (messageElement) {
+                messageElement.textContent = message;
+                messageElement.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+                if (type === 'success') {
+                    messageElement.classList.add('bg-green-100', 'text-green-700');
+                } else if (type === 'error') {
+                    messageElement.classList.add('bg-red-100', 'text-red-700');
+                }
+                setTimeout(() => {
+                    messageElement.classList.add('hidden');
+                }, 5000); // Hide after 5 seconds
+            }
+        }
+
+        // --- Tales Page Filtering (Example Static Filter) ---
+        const talesCategoryFilter = document.getElementById('tales-category-filter');
+        const talesTypeFilter = document.getElementById('tales-type-filter');
+        const talesSearchInput = document.getElementById('tales-search');
+        const talesGrid = document.getElementById('tales-grid');
+        const allStoryCards = talesGrid ? talesGrid.querySelectorAll('.story-card') : [];
+
+        function filterTales() {
+            const selectedCategory = talesCategoryFilter.value;
+            const selectedType = talesTypeFilter.value;
+            const searchTerm = talesSearchInput.value.toLowerCase();
+
+            allStoryCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardType = card.getAttribute('data-type');
+                const cardText = card.textContent.toLowerCase();
+
+                const categoryMatch = selectedCategory === 'all' || cardCategory === selectedCategory;
+                const typeMatch = selectedType === 'all' || cardType === selectedType;
+                const searchMatch = cardText.includes(searchTerm);
+
+                if (categoryMatch && typeMatch && searchMatch) {
+                    card.style.display = 'block'; // Show card
+                } else {
+                    card.style.display = 'none'; // Hide card
+                }
+            });
+        }
+
+        if (talesCategoryFilter) talesCategoryFilter.addEventListener('change', filterTales);
+        if (talesTypeFilter) talesTypeFilter.addEventListener('change', filterTales);
+        if (talesSearchInput) talesSearchInput.addEventListener('keyup', filterTales);
+
+        // Initial page load: show homepage
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('homepage');
+            filterTales(); // Apply initial filters to tales page
+        });
+
+    </script>
+</body>
+</html>
